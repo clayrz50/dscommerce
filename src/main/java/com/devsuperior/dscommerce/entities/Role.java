@@ -2,14 +2,17 @@ package com.devsuperior.dscommerce.entities;
 
 import java.util.Objects;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+@SuppressWarnings("serial")
 @Entity
 @Table(name="tb_role")
-public class Role {
+public class Role implements GrantedAuthority{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -30,7 +33,7 @@ public class Role {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	@Override
 	public String getAuthority() {
 		return authority;
 	}
