@@ -16,10 +16,11 @@ public class ProductMinDTO {
 	}
 
 	public ProductMinDTO(Product entity) {
-		this.id = entity.getId();
-		this.name = entity.getName();
-		this.price = entity.getPrice();
-		this.imgUrl = entity.getImgUrl();
+		id = entity.getId();
+		name = entity.getName();
+		price = entity.getPrice();
+		imgUrl = entity.getImgUrl();
+
 	}
 
 	public Long getId() {
