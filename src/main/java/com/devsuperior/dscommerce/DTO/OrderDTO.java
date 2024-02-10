@@ -13,13 +13,13 @@ import jakarta.validation.constraints.NotEmpty;
 public class OrderDTO {
 	private Long id;
 	private Instant moment;
-	private OrderStatus	status;
-	
+	private OrderStatus status;
+
 	private ClientDTO client;
-	
+
 	private PaymentDTO payment;
-	@NotEmpty(message="Deve ter pelo menos um item")
-	private List<OrderItemDTO> items=new ArrayList<>();
+	@NotEmpty(message = "Deve ter pelo menos um item")
+	private List<OrderItemDTO> items = new ArrayList<>();
 
 	public OrderDTO(Long id, Instant moment, OrderStatus status, ClientDTO client, PaymentDTO payment) {
 		this.id = id;
@@ -27,7 +27,7 @@ public class OrderDTO {
 		this.status = status;
 		this.client = client;
 		this.payment = payment;
-	
+
 	}
 
 	public OrderDTO(Order entity) {
@@ -35,9 +35,9 @@ public class OrderDTO {
 		moment = entity.getMoment();
 		status = entity.getStatus();
 		client = new ClientDTO(entity.getClient());
-		payment = (entity.getPayment()==null) ? null : new PaymentDTO(entity.getPayment());
+		payment = (entity.getPayment() == null) ? null : new PaymentDTO(entity.getPayment());
 		for (OrderItem item : entity.getItems()) {
-			OrderItemDTO dto=new OrderItemDTO(item);
+			OrderItemDTO dto = new OrderItemDTO(item);
 			items.add(dto);
 		}
 	}
@@ -65,10 +65,11 @@ public class OrderDTO {
 	public List<OrderItemDTO> getItems() {
 		return items;
 	}
+
 	public Double getTotal() {
-		double total=0;
+		double total = 0;
 		for (OrderItemDTO orderItemDTO : items) {
-			total+=orderItemDTO.getSubtotal();
+			total += orderItemDTO.getSubtotal();
 		}
 		return total;
 	}

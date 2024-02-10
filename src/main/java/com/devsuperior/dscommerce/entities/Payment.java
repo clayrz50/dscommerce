@@ -13,20 +13,21 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="tb_payment")
+@Table(name = "tb_payment")
 public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(columnDefinition="TIMESTAMP WITHOUT TIME ZONE")
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant moment;
 	@OneToOne
 	@MapsId
 	private Order order;
+
 	public Payment() {
 		super();
 	}
-	
+
 	public Payment(Long id, Instant moment, Order order) {
 		super();
 		this.id = id;
@@ -37,18 +38,23 @@ public class Payment {
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public Instant getMoment() {
 		return moment;
 	}
+
 	public void setMoment(Instant moment) {
 		this.moment = moment;
 	}
+
 	public Order getOrder() {
 		return order;
 	}
+
 	public void setOrder(Order order) {
 		this.order = order;
 	}
@@ -69,6 +75,5 @@ public class Payment {
 		Payment other = (Payment) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
+
 }

@@ -19,7 +19,8 @@ public class Category {
 	private Long id;
 	private String name;
 	@ManyToMany(mappedBy = "categories")
-	private Set<Product> products=new HashSet<>();
+	private Set<Product> products = new HashSet<>();
+
 	public Category() {
 
 	}
@@ -62,6 +63,5 @@ public class Category {
 		Category other = (Category) obj;
 		return Objects.equals(id, other.id);
 	}
-	
 
 }

@@ -13,17 +13,17 @@ import jakarta.validation.constraints.Size;
 
 public class ProductDTO {
 	private Long id;
-	@Size(min=3,max=80,message = "Nome precisa ter de 3 a 80 caracteres")
+	@Size(min = 3, max = 80, message = "Nome precisa ter de 3 a 80 caracteres")
 	@NotBlank(message = "Campo Requerido")
 	private String name;
-	@Size(min=10,message = "Descreição precisa ter no mínimo 10 caracteres")
+	@Size(min = 10, message = "Descreição precisa ter no mínimo 10 caracteres")
 	@NotBlank(message = "Campo Requerido")
 	private String description;
-	@Positive(message="O preço deve ser positivo")
+	@Positive(message = "O preço deve ser positivo")
 	private Double price;
 	private String imgUrl;
-	@NotEmpty(message="Deve ter pelo menos uma categoria")
-	private List<CategoryDTO> categories=new ArrayList<>();
+	@NotEmpty(message = "Deve ter pelo menos uma categoria")
+	private List<CategoryDTO> categories = new ArrayList<>();
 
 	public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
 		this.id = id;
@@ -61,9 +61,9 @@ public class ProductDTO {
 	public String getImgUrl() {
 		return imgUrl;
 	}
+
 	public List<CategoryDTO> getCategories() {
 		return categories;
 	}
-	
 
 }

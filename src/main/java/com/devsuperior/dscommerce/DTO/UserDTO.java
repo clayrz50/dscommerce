@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.devsuperior.dscommerce.entities.User;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserDTO {
 	private Long id;

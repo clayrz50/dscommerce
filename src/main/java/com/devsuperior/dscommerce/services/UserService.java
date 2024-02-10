@@ -18,8 +18,6 @@ import com.devsuperior.dscommerce.entities.User;
 import com.devsuperior.dscommerce.projection.UserDetailsProjection;
 import com.devsuperior.dscommerce.repositories.UserRepository;
 
-
-
 @Service
 public class UserService implements UserDetailsService {
 
@@ -55,10 +53,10 @@ public class UserService implements UserDetailsService {
 			throw new UsernameNotFoundException("Email not Found");
 		}
 	}
-	
-	@Transactional(readOnly=true)
+
+	@Transactional(readOnly = true)
 	public UserDTO getMe() {
-		User user=authenticated();
+		User user = authenticated();
 		return new UserDTO(user);
 	}
 }

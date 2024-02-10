@@ -33,7 +33,7 @@ public class ProductService {
 	}
 
 	@Transactional(readOnly = true)
-	public Page<ProductMinDTO> findAll(String name,Pageable pageable) {
+	public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
 		Page<Product> result = repository.searchByName(name, pageable);
 		return result.map(x -> new ProductMinDTO(x));
 	}
@@ -69,7 +69,7 @@ public class ProductService {
 			throw new DatabaseException("Falha de integridade referencial");
 		}
 	}
-	
+
 	private void copyDtoToEntity(ProductDTO dto, Product entity) {
 		entity.setName(dto.getName());
 		entity.setDescription(dto.getDescription());
@@ -77,7 +77,7 @@ public class ProductService {
 		entity.setImgUrl(dto.getImgUrl());
 		entity.getCategories().clear();
 		for (CategoryDTO catDTO : dto.getCategories()) {
-			Category cat=new Category(catDTO.getId(),catDTO.getName());
+			Category cat = new Category(catDTO.getId(), catDTO.getName());
 			entity.getCategories().add(cat);
 		}
 

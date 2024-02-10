@@ -116,6 +116,5 @@ public class Order {
 		Order other = (Order) obj;
 		return Objects.equals(id, other.id);
 	}
-	
 
 }

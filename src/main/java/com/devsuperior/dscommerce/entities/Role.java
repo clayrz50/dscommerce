@@ -9,10 +9,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 @SuppressWarnings("serial")
 @Entity
-@Table(name="tb_role")
-public class Role implements GrantedAuthority{
+@Table(name = "tb_role")
+public class Role implements GrantedAuthority {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -33,6 +34,7 @@ public class Role implements GrantedAuthority{
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	@Override
 	public String getAuthority() {
 		return authority;
@@ -58,8 +60,5 @@ public class Role implements GrantedAuthority{
 		Role other = (Role) obj;
 		return Objects.equals(authority, other.authority);
 	}
-	
-	
-	
 
 }
